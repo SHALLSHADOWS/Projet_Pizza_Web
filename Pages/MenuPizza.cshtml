@@ -1,0 +1,52 @@
+﻿@page
+@model Projet_Web_Pizza.Pages.MenuPizzaModel
+@{
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="~/css/style.css" />
+    <title>Menu des Pizzas</title>
+</head>
+<body>
+
+     <a asp-page="Index">
+         
+         <img src="~/images/small_logo.png" id="small_logo"  />
+         
+     </a>
+
+    <div class="menu_title">
+
+
+    <h1>Les pizzas</h1>
+
+    </div>
+
+    <div class="menu_list">
+
+        @foreach (var pizza in Model.Pizza)
+        {
+            <div class="menu_list_item" >
+                <span class="menu_list_title">@pizza.nom</span>
+                <span class="menu_list_price">@pizza.prix €</span>
+                <span class="menu_list_ingredients">@pizza.ingredients</span>
+                @if (pizza.vegetarienne)
+                {
+                           <span class="menu_list_badge">VEGETARIENNE</span>  
+                }
+               
+            
+            </div>
+        }
+    </div>
+   
+
+    <a asp-page="Index">Retour à l'acceuil</a>
+
+</body>
+</html>
+
+
+
